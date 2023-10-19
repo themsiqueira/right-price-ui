@@ -2,21 +2,17 @@ import { render, screen } from '@testing-library/react';
 
 import { Home } from '..';
 
-// const makescreen = () => {
-//   const screen = render(<Home />);
-//   return { screen };
-// };
+const makeSut = () => {
+  const sut = render(<Home />);
+  return { sut };
+};
 
 describe('Render HomePage items', () => {
   it('should render homepage components', () => {
-    render(<Home />);
+    const { sut } = makeSut();
 
-    const imageItem = screen.getByTestId('logo-img-id');
-    const inputId = screen.getByTestId('navbar-main');
-    const mainTitle = screen.getByText('Preço Certo');
+    const imageItem = sut.getByTestId('logo-img-id');
 
     expect(imageItem).toBeInTheDocument();
-    expect(inputId).toBeInTheDocument();
-    expect(mainTitle).toBeInTheDocument();
   });
 });

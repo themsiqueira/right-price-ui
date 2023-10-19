@@ -1,11 +1,9 @@
-import { NavBar } from '../../components';
 import logo from '../../assets/static/logo.png';
-import { TextInput } from '../../components/textInput';
+import { TextInput } from '../../components/TextInput';
 
 const Home = () => {
   return (
     <div className="App">
-      <NavBar title="Preço Certo" />
       <header className="App-header">
         <a className="App-link" target="_blank" rel="noopener noreferrer">
           <div

@@ -26,20 +26,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-app-rewired test",
-    "testAll": "react-app-rewired test --watchAll --coverage",
+    "test": "react-scripts test",
+    "testAll": "react-scripts test --watchAll --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
-  },
-  "jest": {
-    "coverageDirectory": "coverage/typescript",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/node_modules/"
     ]
   },
   "browserslist": {
