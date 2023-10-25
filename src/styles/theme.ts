@@ -1,4 +1,5 @@
-import { createTheme } from '@mui/material';
+// import { createTheme } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material' {
   export interface ThemeOptions {
@@ -68,5 +69,9 @@ export const theme = createTheme({
     regular: '400',
     medium: '500',
     bold: '700'
+  },
+  typography: {
+    fontFamily: ['Poppins', 'Arial', 'sans-serif'].join(',')
+    // You can also specify other typography settings here if needed
   }
 });

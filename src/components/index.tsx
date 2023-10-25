@@ -1,1 +1,2 @@
-export * from './navBar';
+export * from './NavBar';
+export * from './TextInput';
