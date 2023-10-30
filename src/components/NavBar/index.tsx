@@ -3,117 +3,37 @@ import { ActionButton } from '../UI';
 
 const NavBar = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        width: '100%',
-        minHeight: '48px',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          //   backgroundColor: 'red',
-          justifyContent: 'space-between',
-          gap: '5rem'
-        }}
-      >
-        <div
-        // style={{ backgroundColor: 'purple' }}
-        >
+    <div className="flex w-full h-20 bg-white justify-between items-center p-4">
+      <div className="flex justify-between gap-[5rem]">
+        <div className="p-2 bg-blue-300">
           {/* <p>LOGO</p> */}
           LOGO
         </div>
-        <div
-          style={{
-            display: 'flex',
-            //  backgroundColor: 'pink',
-            gap: '3rem'
-          }}
-        >
-          <div>
-            <Link
-              href="/"
-              underline="none"
-              color="inherit"
-              sx={{
-                display: 'inline-block', // Make the link an inline-block element
-                padding: '10px 20px', // Add padding to create the button effect
-                // backgroundColor: 'rgba(0, 0, 0, 0.1)', // Background color for the button
-                borderRadius: '20px', // Add rounded corners
-                '&:hover': {
-                  backgroundColor: '#cbcdd1' // Change the background color to a darker gray on hover
-                }
-              }}
-            >
+        <div className="flex gap-12">
+          <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
+            <Link href="/about" underline="none" color="inherit">
               Home
             </Link>
           </div>
-          <div>
-            <Link
-              //   href="#"
-              underline="none"
-              color="inherit"
-              sx={{
-                display: 'inline-block', // Make the link an inline-block element
-                padding: '10px 20px', // Add padding to create the button effect
-                // backgroundColor: 'rgba(0, 0, 0, 0.1)', // Background color for the button
-                borderRadius: '20px', // Add rounded corners
-                '&:hover': {
-                  backgroundColor: '#cbcdd1' // Change the background color to a darker gray on hover
-                }
-              }}
-            >
-              Features
+          <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
+            <Link href="/about" underline="none" color="inherit">
+              Produtos
             </Link>
           </div>
-          <div>
-            <Link
-              //   href="#"
-              underline="none"
-              color="inherit"
-              sx={{
-                display: 'inline-block', // Make the link an inline-block element
-                padding: '10px 20px', // Add padding to create the button effect
-                // backgroundColor: 'rgba(0, 0, 0, 0.1)', // Background color for the button
-                borderRadius: '20px', // Add rounded corners
-                '&:hover': {
-                  backgroundColor: '#cbcdd1' // Change the background color to a darker gray on hover
-                }
-              }}
-            >
+          <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
+            <Link href="/about" underline="none" color="inherit">
               How it Works
             </Link>
           </div>
-          <div>
-            <Link
-              href="/about"
-              underline="none"
-              color="inherit"
-              sx={{
-                display: 'inline-block', // Make the link an inline-block element
-                padding: '10px 20px', // Add padding to create the button effect
-                // backgroundColor: 'rgba(0, 0, 0, 0.1)', // Background color for the button
-                borderRadius: '20px', // Add rounded corners
-                '&:hover': {
-                  backgroundColor: '#cbcdd1' // Change the background color to a darker gray on hover
-                }
-              }}
-            >
+          <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
+            <Link href="/about" underline="none" color="inherit">
               About Us
             </Link>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          alignContent: 'flex-end',
-          justifyContent: 'flex-end'
-        }}
-      >
-        <div style={{ paddingRight: '3rem' }}>
+      <div className="flex justify-end">
+        <div className="p-12">
           <ActionButton
             title="Acessar Portal"
             handleAction={() => {
