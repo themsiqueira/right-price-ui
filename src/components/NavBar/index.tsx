@@ -1,4 +1,4 @@
-import { Divider, Link } from '@mui/material';
+import { Link } from '@mui/material';
 import { ActionButton } from '../UI';
 
 const NavBar = () => {
@@ -37,7 +37,7 @@ const NavBar = () => {
           <ActionButton
             title="Acessar Portal"
             handleAction={() => {
-              console.log('call api login');
+              // console.log('call api login');
             }}
           />
         </div>
