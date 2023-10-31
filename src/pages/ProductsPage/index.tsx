@@ -1,4 +1,4 @@
-import { NavBar, NewProductButton, ProductsTable } from '../../components';
+import { NavBar, NewProductModal, ProductsTable } from '../../components';
 
 const ProductsPage = () => {
   return (
@@ -11,7 +11,7 @@ const ProductsPage = () => {
               Produtos Cadastrados
             </h1>
             <div className="flex justify-end items-center">
-              <NewProductButton />
+              <NewProductModal />
             </div>
           </div>
           <div />
