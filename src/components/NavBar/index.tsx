@@ -11,7 +11,7 @@ const NavBar = () => {
         </div>
         <div className="flex gap-12">
           <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
-            <Link href="/homepage" underline="none" color="inherit">
+            <Link href="/" underline="none" color="inherit">
               Home
             </Link>
           </div>
