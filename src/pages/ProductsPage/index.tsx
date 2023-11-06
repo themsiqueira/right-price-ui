@@ -1,24 +1,55 @@
-import { NavBar, NewProductModal, ProductsTable } from '../../components';
+import { useState } from 'react';
+
+import { NavBar, ProductsTable } from '../../components';
+import { useProductsContext } from '../../hooks';
+import './ProductsPage.css';
 
 const ProductsPage = () => {
+  const { columns, tableItems, postOCRFile } = useProductsContext();
+  // const { items, setContainerAndFile } = useContext(AzureStorageContext); // Destructure the needed context values and functions
+
+  const [containerName, setContainerName] = useState('');
+  const [fileName, setFileName] = useState('');
+
+  // This is a mock function to illustrate setting the context
+  // You should replace this with the actual logic to fetch data from Azure
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    // Here you would fetch the data from Azure and update your context
+    postOCRFile(containerName, fileName);
+  };
+  console.log(tableItems);
+
   return (
     <>
       <NavBar />
-      <div className="w-full bg-blue-100 p-4">
-        <div className="mx-auto m-10 md:w-2/3 h-7/10 border border-gray-200 shadow-xl rounded-xl bg-white">
-          <div className="grid grid-cols-3 h-1/3 px-6 w-full bg-blue-300 rounded-t-xl">
-            <h1 className="col-start-2 h-full flex justify-center items-center text-white text-2xl font-semibold py-6">
-              Produtos Cadastrados
-            </h1>
-            <div className="flex justify-end items-center">
-              <NewProductModal />
+      <div className="your-component">
+        <div className="background-style">
+          <form onSubmit={handleSubmit}>
+            <div className="input-card">
+              <input
+                type="text"
+                placeholder="Enter container name"
+                value={containerName}
+                onChange={e => setContainerName(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Enter file name"
+                value={fileName}
+                onChange={e => setFileName(e.target.value)}
+              />
+              <button type="submit">Submit</button>
             </div>
-          </div>
-          <div />
-          <div className="p-4">
-            <ProductsTable />
-          </div>
+          </form>
         </div>
+      </div>
+      <div className="data-table-container">
+        <ProductsTable
+          className="data-table-container"
+          data={tableItems}
+          columns={columns}
+        />
       </div>
     </>
   );

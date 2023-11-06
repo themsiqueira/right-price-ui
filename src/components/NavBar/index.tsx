@@ -1,4 +1,5 @@
 import { Link } from '@mui/material';
+
 import { ActionButton } from '../UI';
 
 const NavBar = () => {
