@@ -1,0 +1,59 @@
+.your-component {
+    background: #f4f5f7; /* Or any background you see fit */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .background-style {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px; /* Added margin for overall spacing */
+  }
+  
+  .input-card {
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 30px; /* Increased margin-bottom for spacing above the table */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap as needed */
+  }
+  
+  .input-card input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+  }
+  
+  .input-card button {
+    padding: 10px 10px;
+    background-color: #4caf50; /* Sample green color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Styling for the DataTable container */
+  .data-table-container {
+    background: #ffffff; /* White background for the table */
+    border: 1px solid #e0e0e0; /* Light grey border */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Ensures the border radius clips the table */
+    padding: 1rem 1rem 1rem 1rem;
+  }
+  
+  /* Additional styling for DataTable */
+  .react-data-table-component {
+    border-radius: 4px; /* Rounded corners for the table itself */
+  }
+  
+  /* Add more specific styling as needed */
+  

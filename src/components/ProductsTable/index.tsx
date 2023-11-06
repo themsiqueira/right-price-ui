@@ -1,77 +1,49 @@
-import * as React from 'react';
-import DataTable, { ExpanderComponentProps } from 'react-data-table-component';
+import { CircularProgress } from '@mui/material';
+import { useMemo } from 'react';
+import { TableColumn } from 'react-data-table-component';
 
-type DataRow = {
-  name: string;
-  category: string;
-  price: number;
-};
+import { ITableProducts } from '../../types/components/TableProducts';
+import { DataTableThemed } from '../UI/DataTableThemed';
 
-type TableColumn<T> = {
-  name: string;
-  selector: (row: T) => string | number;
-};
+type dataProps = ITableProducts[];
 
-const columns: TableColumn<DataRow>[] = [
-  {
-    name: 'Nome',
-    selector: row => row.name
-  },
-  {
-    name: 'Categoria',
-    selector: row => row.category
-  },
-  {
-    name: 'Preço',
-    selector: row =>
-      row.price.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      })
-  }
-];
+interface ProductsTableProps {
+  data: dataProps;
+  columns: TableColumn<any>[];
+  progressPending?: boolean;
+  className?: string;
+}
 
-const data: DataRow[] = [
-  {
-    name: 'Celular',
-    category: 'Eletrônicos',
-    price: 599.99
-  },
-  {
-    name: 'Camiseta',
-    category: 'Roupas',
-    price: 49.95
-  },
-  {
-    name: 'Bíblia',
-    category: 'Livros',
-    price: 14.99
-  },
-  {
-    name: 'Delineador',
-    category: 'Cosméticos',
-    price: 29.99
-  },
-  {
-    name: 'Carrinho',
-    category: 'Brinquedos',
-    price: 34.5
-  }
-];
+const ProductsTable = ({
+  data,
+  columns,
+  progressPending,
+  className
+}: ProductsTableProps) => {
+  const LoadingComponent = useMemo(() => {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '200px'
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+  }, []);
 
-const ExpandedComponent: React.FC<ExpanderComponentProps<DataRow>> = ({
-  data: rowData
-}) => {
-  return <pre>{JSON.stringify(rowData, null, 2)}</pre>;
-};
-
-const ProductsTable = () => {
   return (
-    <DataTable
+    <DataTableThemed
+      className={className}
       columns={columns}
       data={data}
-      expandableRows
-      expandableRowsComponent={ExpandedComponent}
+      progressPending={progressPending}
+      progressComponent={LoadingComponent}
+      highlightOnHover
+      noDataComponent="Nenhum produto encontrado"
     />
   );
 };
