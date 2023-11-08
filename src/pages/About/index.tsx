@@ -1,3 +1,6 @@
+import Container from '@mui/material/Container';
+
+import ImageBg from '../../assets/static/19.png';
 import { NavBar } from '../../components';
 
 const AboutPage = () => {
@@ -5,9 +8,17 @@ const AboutPage = () => {
     <>
       <NavBar />
       <div
-        style={{ backgroundColor: '#e3dede', height: '100vh', width: '100%' }}
+        style={{
+          backgroundImage: `url(${ImageBg})`,
+          height: '100vh',
+          width: '100%',
+          backgroundSize: 'cover',
+          position: 'relative'
+        }}
       >
-        <p>This is the About Page</p>
+        <Container sx={{ height: '100%' }}>
+          <div className="bg-white h-[100vh]">Sobre nós</div>
+        </Container>
       </div>
     </>
   );

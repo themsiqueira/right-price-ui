@@ -6,14 +6,13 @@ const NavBar = () => {
   return (
     <div className="flex w-full h-20 bg-white justify-between items-center p-4">
       <div className="flex justify-between gap-[5rem]">
-        <div className="p-2 bg-blue-300">
-          {/* <p>LOGO</p> */}
-          LOGO
-        </div>
+        <a href="/">
+          <p className="text-2xl text-blue-500 font-bold">Preço Certo</p>
+        </a>
         <div className="flex gap-12">
           <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
             <Link href="/" underline="none" color="inherit">
-              Home
+              Início
             </Link>
           </div>
           <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
@@ -23,12 +22,12 @@ const NavBar = () => {
           </div>
           <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
             <Link underline="none" color="inherit">
-              How it Works
+              Como começar
             </Link>
           </div>
           <div className="flex justify-center items-center px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 rounded-2xl">
             <Link href="/about" underline="none" color="inherit">
-              About Us
+              Sobre nós
             </Link>
           </div>
         </div>
