@@ -1,9 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { LandingPage } from '../pages/LandingPage';
+
+import { ProductsContextDataProvider } from '../context';
 import { Home } from '../pages';
 import { AboutPage } from '../pages/About';
+import { LandingPage } from '../pages/LandingPage';
 import { ProductsPage } from '../pages/ProductsPage';
-import { ProductsContextDataProvider } from '../context';
 
 const DefinedRoutes = () => {
   return (
