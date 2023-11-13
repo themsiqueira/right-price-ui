@@ -9,6 +9,7 @@ type dataProps = ITableProducts[];
 
 interface ProductsTableProps {
   data: dataProps;
+  //   eslint-disable-next-line
   columns: TableColumn<any>[];
   progressPending?: boolean;
   className?: string;

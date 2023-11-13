@@ -13,11 +13,13 @@ const ProductsPage = () => {
 
   // This is a mock function to illustrate setting the context
   // You should replace this with the actual logic to fetch data from Azure
+  // eslint-disable-next-line
   const handleSubmit = (event: any) => {
     event.preventDefault();
     // Here you would fetch the data from Azure and update your context
     postOCRFile(containerName, fileName);
   };
+  // eslint-disable-next-line
   console.log(tableItems);
 
   return (

@@ -9,7 +9,9 @@ import {
 import { TableColumn } from 'react-data-table-component';
 
 import { Columns } from '../../components/ProductsTable/Columns';
-import { endpoints, envAddress } from '../../endpoints/endpointsRoutes';
+//   eslint-disable-next-line
+import { envAddress } from '../../endpoints/endpointsRoutes';
+//   eslint-disable-next-line
 import { customAPI } from '../../services/api';
 import { ITableProducts } from '../../types/components/TableProducts';
 import { mockedData } from './mockItems';
@@ -20,6 +22,7 @@ interface ProductsProviderProps {
 
 interface ProductsContextProps {
   columns: TableColumn<ITableProducts>[];
+  //   eslint-disable-next-line
   postOCRFile: (containerName: string, fileName: string) => Promise<any>;
   tableItems: ITableProducts[];
 }
@@ -29,10 +32,11 @@ const ProductsContext = createContext({} as ProductsContextProps);
 const ProductsContextDataProvider = ({ children }: ProductsProviderProps) => {
   const [tableItems, setTableItems] = useState([] as ITableProducts[]);
 
-  const api = customAPI(envAddress.local);
+  //   const api = customAPI(envAddress.local);
 
   const handleInfo = (row: ITableProducts) => {
-    alert('works!');
+    // alert('works!');
+    // eslint-disable-next-line
     console.log(row);
   };
 
@@ -47,6 +51,7 @@ const ProductsContextDataProvider = ({ children }: ProductsProviderProps) => {
         // );
         setTableItems(mockedData);
       } catch {
+        // eslint-disable-next-line
         console.log('error api call');
       }
     },
@@ -59,6 +64,7 @@ const ProductsContextDataProvider = ({ children }: ProductsProviderProps) => {
       postOCRFile,
       tableItems
     };
+    // eslint-disable-next-line
   }, [columns]);
 
   return (

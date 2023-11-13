@@ -11,6 +11,7 @@ interface AuthContextData {
 const AuthContext = createContext({} as AuthContextData);
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
+  // eslint-disable-next-line
   const [userData, setUserData] = useState<string | null>(null);
 
   //   const signIn = useCallback(() => {}, []);
