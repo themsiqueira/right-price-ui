@@ -1,5 +1,6 @@
 import DataTable, { TableProps, createTheme } from 'react-data-table-component';
 
+// eslint-disable-next-line
 interface DataTableThemeProps extends TableProps<any> {
   noDataTitle?: string;
 }
