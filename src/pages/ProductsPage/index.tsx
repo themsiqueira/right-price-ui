@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import ImageBg from '../../assets/static/19.png';
 import { NavBar, ProductsTable } from '../../components';
 import { useProductsContext } from '../../hooks';
 import './ProductsPage.css';
@@ -25,7 +26,15 @@ const ProductsPage = () => {
   return (
     <>
       <NavBar />
-      <div className="your-component">
+      <div
+        className="your-component"
+        style={{
+          backgroundImage: `url(${ImageBg})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center'
+        }}
+      >
         <div className="background-style">
           <form onSubmit={handleSubmit}>
             <div className="input-card">
