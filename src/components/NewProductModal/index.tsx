@@ -1,22 +1,11 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton } from '@mui/material';
-import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4
-};
+const modalClass =
+  'p-8 w-full md:w-1/2 lg:w-1/3 rounded-lg md:rounded-xl bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2';
 
 const NewProductModal = () => {
   const [open, setOpen] = React.useState(false);
@@ -30,10 +19,9 @@ const NewProductModal = () => {
         aria-label="add new product"
         onClick={handleOpen}
       >
-        <FontAwesomeIcon
-          icon={faPlus}
-          className="text-white hover:text-blue-500"
-        />
+        <div className="text-blue-500 text-base">
+          Adicionar Produto <FontAwesomeIcon icon={faPlus} className="ml-1" />
+        </div>
       </IconButton>
 
       <Modal
@@ -42,14 +30,7 @@ const NewProductModal = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-        </Box>
+        <div className={modalClass}>exemplo</div>
       </Modal>
     </div>
   );
