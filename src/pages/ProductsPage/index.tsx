@@ -7,19 +7,87 @@ import { Container } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 import ImageBg from '../../assets/static/19.png';
-import { NavBar, NewProductModal, ProductCard } from '../../components';
+import {
+  NavBar,
+  NewProductModal,
+  ProductCard,
+  Reais2Number
+} from '../../components';
 import { DataProducts } from '../../context/Products/mockItems';
 import { useProductsContext } from '../../hooks';
 
 const ProductsPage = () => {
-  const products = DataProducts;
+  const [sortingOption, setSortingOption] = useState('1');
+  const originalProducts = DataProducts;
+  const [products, setProducts] = useState(originalProducts);
 
   useEffect(() => {
     document.title = 'Produtos Cadastrados';
   }, []);
 
-  const handleFilter = () => {
-    console.log('filter');
+  const handleSortChange = (event: { target: { value: string } }) => {
+    const selectedOption = event.target.value;
+    setSortingOption(selectedOption);
+
+    switch (selectedOption) {
+      case '1':
+        setProducts(
+          [...originalProducts].sort((a, b) => a.name.localeCompare(b.name))
+        );
+        break;
+      case '2':
+        setProducts(
+          [...originalProducts].sort((a, b) => {
+            const bPrice = Reais2Number(b.newPrice);
+            const aPrice = Reais2Number(a.newPrice);
+            return bPrice - aPrice;
+          })
+        );
+        break;
+      case '3':
+        setProducts(
+          [...originalProducts].sort((a, b) => {
+            const bPrice = Reais2Number(b.newPrice);
+            const aPrice = Reais2Number(a.newPrice);
+            return aPrice - bPrice;
+          })
+        );
+        break;
+      case '4':
+        setProducts(
+          [...originalProducts].sort((a, b) => {
+            const bDiscount =
+              ((Reais2Number(b.price) - Reais2Number(b.newPrice)) /
+                Reais2Number(b.price)) *
+              100;
+            const aDiscount =
+              ((Reais2Number(a.price) - Reais2Number(a.newPrice)) /
+                Reais2Number(a.price)) *
+              100;
+            return bDiscount - aDiscount;
+          })
+        );
+        break;
+      case '5':
+        setProducts(
+          [...originalProducts].sort((a, b) =>
+            a.category.localeCompare(b.category)
+          )
+        );
+        break;
+      case '6':
+        setProducts(
+          [...originalProducts].sort((a, b) => {
+            const bDate = new Date(b.registerDate);
+            const aDate = new Date(a.registerDate);
+            return bDate.getTime() - aDate.getTime();
+          })
+        );
+        break;
+      default:
+        setProducts(originalProducts);
+        break;
+    }
   };
 
   return (
@@ -42,13 +110,15 @@ const ProductsPage = () => {
             </div>
             <div className="md:col-span-2 lg:col-span-1 flex justify-center lg:justify-end items-center">
               Classificar por:
-              <select className="ml-2 border border-gray-300 rounded-lg px-2 py-1 mr-4">
-                <option value="1" selected>
-                  Nome
-                </option>
+              <select
+                className="ml-2 border border-gray-300 rounded-lg px-2 py-1 mr-4"
+                value={sortingOption}
+                onChange={handleSortChange}
+              >
+                <option value="1">Nome</option>
                 <option value="2">Preço Maior-Menor</option>
                 <option value="3">Menor Menor-Maior</option>
-                <option value="4">Mercado</option>
+                <option value="4">Desconto Maior-Menor</option>
                 <option value="5">Categoria</option>
                 <option value="6">Mais Recentes</option>
               </select>
