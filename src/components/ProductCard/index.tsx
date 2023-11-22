@@ -72,4 +72,4 @@ const ProductCard: React.FC<ProductCardProps> = ({
     </div>
   );
 };
-export { ProductCard };
+export { ProductCard, Reais2Number };
